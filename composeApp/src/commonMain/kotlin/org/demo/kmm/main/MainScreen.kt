@@ -1,7 +1,6 @@
 package org.demo.kmm.main
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -21,11 +20,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun MainScreen(component: MainComponent) {
+fun MainScreen(component: MainComponent?) {
     MaterialTheme {
         val greeting = remember { Greeting().greet() }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { component.onBackClicked() }, modifier = Modifier.align(Alignment.Start).padding(8.dp)) {
+            Button(onClick = { component?.onBackClicked() }, modifier = Modifier.align(Alignment.Start).padding(8.dp)) {
                 Text("Back")
             }
             Image(painterResource(Res.drawable.compose_multiplatform), null)

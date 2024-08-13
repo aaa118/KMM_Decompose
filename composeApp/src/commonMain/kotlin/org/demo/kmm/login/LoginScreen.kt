@@ -19,9 +19,9 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun LoginScreen(loginComponent: LoginComponent) {
+fun LoginScreen(loginComponent: LoginComponent?) {
 
-    var showContent by remember { mutableStateOf(false) }
+    val showContent by remember { mutableStateOf(false) }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -30,23 +30,21 @@ fun LoginScreen(loginComponent: LoginComponent) {
         TextField(
             value = email,
             onValueChange = { newText -> email = newText },
-            label = { Text("Enter text") },
+            label = { Text("Enter Username") },
             modifier = Modifier.padding(16.dp)
         )
         TextField(
             value = password,
             onValueChange = { newText -> password = newText },
-            label = { Text("Enter text") },
+            label = { Text("Enter Password") },
             modifier = Modifier.padding(16.dp)
         )
-        Button(onClick = { loginComponent.onBackClicked() }) {
+        Button(onClick = { loginComponent?.onBackClicked() }) {
             Text("Login")
         }
     }
     AnimatedVisibility(showContent) {
-        loginComponent.onBackClicked()
-//        navigationManager.navigateToMainScreen()
-//        MainScreen()
+        loginComponent?.onBackClicked()
     }
 
 }
