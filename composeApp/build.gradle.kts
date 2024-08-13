@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,7 +7,6 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.kotlin.serializationGradlePlug)
-//    kotlin("multiplatform")
 }
 
 kotlin {
@@ -31,20 +29,6 @@ kotlin {
     }
     
     sourceSets {
-//        val iosMain by getting
-
-//        iosMain {
-//            dependencies {
-//                // Add your dependencies here
-//                implementation(libs.decompose)
-//                implementation(libs.decompose.compose.extensions)
-//                implementation(libs.essenty.lifecycle)
-//                api(libs.essenty.stateKeeper)
-//                api(libs.essenty.backHandler)
-//
-////                implementation("com.example:dependency-library:1.0.0") // Example dependency
-//            }
-//        }
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -56,7 +40,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-//            implementation("androidx.compose.ui:ui-tooling-preview")
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
@@ -114,6 +97,5 @@ dependencies {
 
     implementation(libs.decompose)
     implementation(libs.decompose.compose.extensions)
-
 }
 
